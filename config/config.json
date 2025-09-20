@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "case-management-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/caseManagement/CaseManagementWebPart.js",
+          "manifest": "./src/webparts/caseManagement/CaseManagementWebPart.manifest.json"
+        }
+      ]
+    },
+    "case-management-header-application-customizer": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/caseManagementHeader/CaseManagementHeaderApplicationCustomizer.js",
+          "manifest": "./src/extensions/caseManagementHeader/CaseManagementHeaderApplicationCustomizer.manifest.json"
+        }
+      ]
+    },
+    "graas-leader-ship-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/graasLeaderShip/GraasLeaderShipWebPart.js",
+          "manifest": "./src/webparts/graasLeaderShip/GraasLeaderShipWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "CaseManagementWebPartStrings": "lib/webparts/caseManagement/loc/{locale}.js",
+    "CaseManagementHeaderApplicationCustomizerStrings": "lib/extensions/caseManagementHeader/loc/{locale}.js",
+    "GraasLeaderShipWebPartStrings": "lib/webparts/graasLeaderShip/loc/{locale}.js"
+  }
+}
