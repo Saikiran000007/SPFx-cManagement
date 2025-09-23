@@ -3,7 +3,7 @@ import styles from "./Banner.module.scss";
 import { WebPartContext } from "@microsoft/sp-webpart-base";
 import { useEffect, useState} from "react";
 import Common from "../../Utils/common";
-import ListService from "../SPFXCalls";
+import ListService from "../SPFXCalls/SPFXCalls";
  interface IMyListProps {
    context: WebPartContext;
  }
@@ -49,9 +49,9 @@ const Banner: React.FC <IMyListProps> = ({ context })=> {
       <div className={styles.headerSection}>
         <h1>Welcome to International Safety</h1>
         <div className={styles.navButtons}>
-          <button>Where we are/Contact us</button>
-          <button>Org Chart</button>
-          <button>Local Safety Value Proposition</button>
+          <a href="https://www.google.com" ><button>Where we are/Contact us</button></a>
+           <a href="https://www.google.com"><button>Org Chart</button></a>
+         <a href="https://www.google.com"><button>Local Safety Value Proposition</button></a> 
         </div>
       </div>
  
@@ -60,15 +60,15 @@ const Banner: React.FC <IMyListProps> = ({ context })=> {
       <div className={styles.contentSection}>
         {/* Left Profile */}
         <div className={styles.profileCard}>
-          <img
-            src="https://via.placeholder.com/150"
-            alt="Profile"
-          />
+          
           <div className={styles.profileInfo}>
             <p className={styles.role}>AVP Global Safety</p>
             { 
-            items && items.length > 0 ? 
-            <p className={styles.name}>{items[0].Manager.Title}</p>: 
+            items && items.length > 0 ?
+            <div > 
+            <img src={items[0].ManagerProfile.Url} ></img>
+            <p className={styles.name}>{items[0].Manager.Title}</p>
+            </div>: 
             <p>no user</p>
             }
             
@@ -95,10 +95,7 @@ const Banner: React.FC <IMyListProps> = ({ context })=> {
         {/* Staff Presence Map */}
         <div className={styles.mapCard}>
           <h3>Staff Presence</h3>
-          <img
-            src="https://via.placeholder.com/250x150"
-            alt="World Map"
-          />
+          <img src={items[0].StaffPresence.Url}  ></img>
         </div>
       </div>
       </div>

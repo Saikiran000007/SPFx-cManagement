@@ -5,11 +5,11 @@ import { escape } from '@microsoft/sp-lodash-subset';
 import Leadership from './SPFX/GRAASLeadership';
 export default class GraasLeaderShip extends React.Component<IGraasLeaderShipProps> {
   public render(): React.ReactElement<IGraasLeaderShipProps> {
-  
+  const {context} = this.props;
 
     return (
       <>
-  <Leadership  context={this.props.context}/>
+  <Leadership  context={context}/>
       </>
     );
   }

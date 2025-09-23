@@ -25,14 +25,9 @@ export default class CaseManagementHeaderApplicationCustomizer
   public onInit(): Promise<void> {
     Log.info(LOG_SOURCE, `Initialized ${strings.Title}`);
 
-    let message: string = this.properties.testMessage;
-    if (!message) {
-      message = '(No properties were provided.)';
-    }
+    
 
-    Dialog.alert(`Hello from ${strings.Title}:\n\n${message}`).catch(() => {
-      /* handle error */
-    });
+   
 
     return Promise.resolve();
   }
