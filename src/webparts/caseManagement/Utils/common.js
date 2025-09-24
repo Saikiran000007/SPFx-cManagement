@@ -1,9 +1,13 @@
  const Common={
 ServiceDesk: "ServiceDesk",
-params: ["Id",  "Manager/Title", 
+params: ["Title",  "Manager/Title", 
     "Manager/Id", "Manager/EMail", "Manager/JobTitle", "ProfilePictures", "ManagerProfile", "StaffPresence" ],
 Managers: "Managers",
-ExpandManager: ["Manager"]
+ExpandManager: ["Manager"],
+
+visionMission: "VisionMission",
+VisionMissionparams: [ "Vision", "Mission" ],
+
 
 }
 

@@ -11,15 +11,16 @@ const Banner: React.FC <IMyListProps> = ({ context })=> {
 
     const [items, setItems] = useState<any[]>([]);
       const [loading, setLoading] = useState<boolean>(true);
+      const [visionMission, SetVisionMission ] = useState<any[]>([]);
     
-      const fetchItems = async () => {
+      const fetchManagerItems = async () => {
         try {
           const service = new ListService(context);
           const data = await service.getListItems(
             Common.Managers,
             Common.params,
             Common.ExpandManager,
-            50
+            
             
           );
     
@@ -33,9 +34,28 @@ const Banner: React.FC <IMyListProps> = ({ context })=> {
           setLoading(false);
         }
       };
+
+      const fetchVisionMissionItems = async () => {
+        try {
+          const service = new ListService(context);
+          const data = await service.getListItems(
+            Common.visionMission,
+            Common.VisionMissionparams,
+            [], )
+
+          console.log(data, "data vision mission");
+          SetVisionMission(data);
+          setLoading(false);
+          
+        } catch (error) {
+          console.log(error);
+          
+        }
+      }
     
       useEffect(() => {
-        void fetchItems();
+        void fetchManagerItems();
+        void fetchVisionMissionItems();
       }, []);
 
       if(loading){
@@ -47,7 +67,7 @@ const Banner: React.FC <IMyListProps> = ({ context })=> {
     <div className={styles.bannerContainer}>
       {/* Background with overlay */}
       <div className={styles.headerSection}>
-        <h1>Welcome to International Safety</h1>
+        
         <div className={styles.navButtons}>
           <a href="https://www.google.com" ><button>Where we are/Contact us</button></a>
            <a href="https://www.google.com"><button>Org Chart</button></a>
@@ -62,7 +82,7 @@ const Banner: React.FC <IMyListProps> = ({ context })=> {
         <div className={styles.profileCard}>
           
           <div className={styles.profileInfo}>
-            <p className={styles.role}>AVP Global Safety</p>
+            <p className={styles.role}>{items && items.length>0 ?  items[0].Title: null}</p>
             { 
             items && items.length > 0 ?
             <div > 
@@ -80,22 +100,19 @@ const Banner: React.FC <IMyListProps> = ({ context })=> {
           <div className={styles.card}>
             <span className={styles.icon}>💡</span>
             <h3>Our Vision</h3>
-            <p>Patient Safety First for every patient, everywhere.</p>
+            <p>{visionMission && visionMission.length >0 ? visionMission[0].Vision : null}</p>
           </div>
           <div className={styles.card}>
             <span className={styles.icon}>🚀</span>
             <h3>Our Mission</h3>
-            <p>
-              Optimizing the safe use of Amgen’s medicines through regulatory compliance,
-              process excellence and appropriate communication of risk/benefit at the local level.
-            </p>
+            <p>{visionMission && visionMission.length >0 ? visionMission[0].Mission: null}</p>
           </div>
         </div>
  
         {/* Staff Presence Map */}
         <div className={styles.mapCard}>
           <h3>Staff Presence</h3>
-          <img src={items[0].StaffPresence.Url}  ></img>
+         { items &&  items.length> 0 ?  <img src={items[0].StaffPresence.Url} ></img>: null} 
         </div>
       </div>
       </div>

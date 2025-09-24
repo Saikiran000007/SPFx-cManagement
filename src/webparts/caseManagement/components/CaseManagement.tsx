@@ -5,12 +5,12 @@ import Banner from '../SPFXService/WelcomBanner/Banner';
 
 export default class CaseManagement extends React.Component<ICaseManagementProps> {
   public render(): React.ReactElement<ICaseManagementProps> {
-   
-
+   const {context} = this.props;
+     
     return (
       <>
      
-      <Banner  context={this.props.context}/>
+      <Banner  context={context}/>
       </>
     );
   }

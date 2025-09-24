@@ -17,7 +17,7 @@ export default class ListService {
 
   public async getListItems(listName: string,selectFields: any[] = ["Id", "Title"],
     expandFields: any[] = [],
-    top: number = 100
+    top: number = 5000
   ): Promise<IItem[]> {
     try {
       const items: IItem[] = await this.sp.web.lists
