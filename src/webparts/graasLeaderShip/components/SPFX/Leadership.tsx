@@ -23,13 +23,13 @@ const [items, SetItems] = useState<any[]>([]);
     try {
         const service = new ListService(context);
           const data = await service.getListItems(
-                     Common.Managers,
-                     Common.params,
-                     Common.ExpandManager,
+                     Common.leadership,
+                     Common.leadershipParams,
+                     Common.Expandname,
                      50
                     );
              
-                   console.log(data, "data");
+                   console.log(data, "data from leadership");
                      SetItems(data);
                      SetLoading(false)
     } catch (error) {
@@ -52,13 +52,13 @@ if(loading){
         {items.map((leader, index) => (
           <div key={index} className={styles.card}>
             <div className={styles.avatar}>
-              {     leader.ProfilePictures.Url ? 
-              <img src={leader.ProfilePictures.Url} className={styles.avatar}  alt={leader.ProfilePictures.Description}></img> :
-              leader.Manager.Title.split(" ").map(n => n[0]).join("")
+              {     leader.profile.Url ? 
+              <img src={leader.profile.Url} className={styles.avatar}  alt={leader.profile.Description}></img> :
+              leader.name.Title.split(" ").map(n => n[0]).join("")
               }
             </div>
-            <h3 className={styles.name}>{leader.Manager.Title}</h3>
-           <p className={styles.role}>{leader.Manager.JobTitle}</p> 
+            <h3 className={styles.name}>{leader.name.Title}</h3>
+           <p className={styles.role}>{leader.name.JobTitle}</p> 
           </div>
         ))}
       </div>

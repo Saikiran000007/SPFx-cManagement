@@ -7,7 +7,10 @@ ExpandManager: ["Manager"],
 
 visionMission: "VisionMission",
 VisionMissionparams: [ "Vision", "Mission" ],
-
+leadership: "leadership",
+leadershipParams: [ "Title",  "name/Title", 
+    "name/Id", "name/EMail", "name/JobTitle", "profile" ],
+Expandname: ["name"],
 
 }
 
