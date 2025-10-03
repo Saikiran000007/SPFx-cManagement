@@ -25,12 +25,30 @@
           "manifest": "./src/webparts/graasLeaderShip/GraasLeaderShipWebPart.manifest.json"
         }
       ]
+    },
+    "hexagons-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/hexagons/HexagonsWebPart.js",
+          "manifest": "./src/webparts/hexagons/HexagonsWebPart.manifest.json"
+        }
+      ]
+    },
+    "cm-links-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/cmLinks/CmLinksWebPart.js",
+          "manifest": "./src/webparts/cmLinks/CmLinksWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
     "CaseManagementWebPartStrings": "lib/webparts/caseManagement/loc/{locale}.js",
     "CaseManagementHeaderApplicationCustomizerStrings": "lib/extensions/caseManagementHeader/loc/{locale}.js",
-    "GraasLeaderShipWebPartStrings": "lib/webparts/graasLeaderShip/loc/{locale}.js"
+    "GraasLeaderShipWebPartStrings": "lib/webparts/graasLeaderShip/loc/{locale}.js",
+    "HexagonsWebPartStrings": "lib/webparts/hexagons/loc/{locale}.js",
+    "CmLinksWebPartStrings": "lib/webparts/cmLinks/loc/{locale}.js"
   }
 }

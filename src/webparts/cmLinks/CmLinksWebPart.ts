@@ -7,20 +7,22 @@ import {
 } from "@microsoft/sp-property-pane";
 import { BaseClientSideWebPart } from "@microsoft/sp-webpart-base";
 
-import * as strings from "CaseManagementWebPartStrings";
-import CaseManagement from "./components/CaseManagement";
-import { ICaseManagementProps } from "./components/ICaseManagementProps";
+import * as strings from "CmLinksWebPartStrings";
+import CmLinks from "./components/CmLinks";
+import { ICmLinksProps } from "./components/ICmLinksProps";
 
-export interface ICaseManagementWebPartProps {
+export interface ICmLinksWebPartProps {
   description: string;
 }
 
-export default class CaseManagementWebPart extends BaseClientSideWebPart<ICaseManagementWebPartProps> {
+export default class CmLinksWebPart extends BaseClientSideWebPart<ICmLinksWebPartProps> {
   public render(): void {
-    const element: React.ReactElement<ICaseManagementProps> =
-      React.createElement(CaseManagement, {
+    const element: React.ReactElement<ICmLinksProps> = React.createElement(
+      CmLinks,
+      {
         context: this.context,
-      });
+      }
+    );
 
     ReactDom.render(element, this.domElement);
   }

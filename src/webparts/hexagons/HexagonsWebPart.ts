@@ -7,20 +7,22 @@ import {
 } from "@microsoft/sp-property-pane";
 import { BaseClientSideWebPart } from "@microsoft/sp-webpart-base";
 
-import * as strings from "CaseManagementWebPartStrings";
-import CaseManagement from "./components/CaseManagement";
-import { ICaseManagementProps } from "./components/ICaseManagementProps";
+import * as strings from "HexagonsWebPartStrings";
+import Hexagons from "./components/Hexagons";
+import { IHexagonsProps } from "./components/IHexagonsProps";
 
-export interface ICaseManagementWebPartProps {
+export interface IHexagonsWebPartProps {
   description: string;
 }
 
-export default class CaseManagementWebPart extends BaseClientSideWebPart<ICaseManagementWebPartProps> {
+export default class HexagonsWebPart extends BaseClientSideWebPart<IHexagonsWebPartProps> {
   public render(): void {
-    const element: React.ReactElement<ICaseManagementProps> =
-      React.createElement(CaseManagement, {
+    const element: React.ReactElement<IHexagonsProps> = React.createElement(
+      Hexagons,
+      {
         context: this.context,
-      });
+      }
+    );
 
     ReactDom.render(element, this.domElement);
   }

@@ -1,0 +1,114 @@
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  
+  font-family: 'Segoe UI', sans-serif;
+}
+ 
+.section, .systemSection {
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+ 
+h3 {
+  background: #004a99;
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.linkWrapper{
+  text-decoration: none;
+  color: inherit;
+}
+
+ 
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ 
+.linkList li {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+  font-size: 13px;
+  cursor: pointer;
+}
+ 
+.icon {
+  margin-right: 8px;
+  color: #ff9900;
+}
+ 
+.systemSection .grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.assalLinks{
+  
+   background-color: #eaf4fb;
+    padding: 8px;
+    margin-bottom: 6px;
+    border-radius: 4px;
+}
+ 
+.systemCard {
+  background: #eaf4fb;
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+ 
+.systemCard:hover {
+  background: #d8eefe;
+}
+ 
+.sysIcon {
+  display: block;
+  margin: 0 auto 6px;
+  font-size: 18px;
+  color: #ff9900;
+}
+
+
+:global {
+  .CanvasZone,
+  .CanvasSection,
+  .Canvas {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+ 
+  .ControlZone {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+ 
+  .clientSideWebPartFullWidth {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+}
+ 
+.myFullPage {
+  width: 100vw;   // full viewport width
+  height: 100vh;  // full viewport height
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+ 

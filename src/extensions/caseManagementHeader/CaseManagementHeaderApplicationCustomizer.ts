@@ -4,15 +4,6 @@ import {
 } from '@microsoft/sp-application-base';
 import { Dialog } from '@microsoft/sp-dialog';
 
-import * as strings from 'CaseManagementHeaderApplicationCustomizerStrings';
-
-const LOG_SOURCE: string = 'CaseManagementHeaderApplicationCustomizer';
-
-/**
- * If your command set uses the ClientSideComponentProperties JSON input,
- * it will be deserialized into the BaseExtension.properties object.
- * You can define an interface to describe it.
- */
 export interface ICaseManagementHeaderApplicationCustomizerProperties {
   // This is an example; replace with your own property
   testMessage: string;
@@ -22,13 +13,5 @@ export interface ICaseManagementHeaderApplicationCustomizerProperties {
 export default class CaseManagementHeaderApplicationCustomizer
   extends BaseApplicationCustomizer<ICaseManagementHeaderApplicationCustomizerProperties> {
 
-  public onInit(): Promise<void> {
-    Log.info(LOG_SOURCE, `Initialized ${strings.Title}`);
-
-    
-
-   
-
-    return Promise.resolve();
-  }
+ 
 }

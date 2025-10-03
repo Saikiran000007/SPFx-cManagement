@@ -52,9 +52,9 @@ if(loading){
         {items.map((leader, index) => (
           <div key={index} className={styles.card}>
             <div className={styles.avatar}>
-              {     leader.profile.Url ? 
-              <img src={leader.profile.Url} className={styles.avatar}  alt={leader.profile.Description}></img> :
-              leader.name.Title.split(" ").map(n => n[0]).join("")
+              {     leader && leader.profile.Url &&
+              <img src={leader.profile.Url} className={styles.avatar}  alt={leader.profile.Description}></img> 
+              
               }
             </div>
             <h3 className={styles.name}>{leader.name.Title}</h3>
