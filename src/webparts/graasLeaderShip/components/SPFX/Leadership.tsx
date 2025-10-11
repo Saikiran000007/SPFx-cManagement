@@ -47,9 +47,12 @@ if(loading){
 
   return (
     <div className={styles.leadershipContainer}>
-      <h2 className={styles.title}>-------GRAAS Leadership------</h2>
+     
+ <h2 className={styles.title}>GRAAS Leadership </h2>
+     
+    
       <div className={styles.cardsRow}>
-        {items.map((leader, index) => (
+        { items && items.length>0 ?   items.map((leader, index) => (
           <div key={index} className={styles.card}>
             <div className={styles.avatar}>
               {     leader && leader.profile.Url &&
@@ -57,10 +60,20 @@ if(loading){
               
               }
             </div>
-            <h3 className={styles.name}>{leader.name.Title}</h3>
+            <p className={styles.name}>{leader.name.Title}</p>
            <p className={styles.role}>{leader.name.JobTitle}</p> 
+           <a href={leader.OrgChartLinks ? leader.OrgChartLinks.Url : "#"} target="_blank" rel="noopener noreferrer" className={styles.orgchartlink}>
+           <h4>
+            <img src="https://img.icons8.com/fluency/48/organization-chart-people.png" 
+            alt="orgnasation Chart" width={18} height={18}  className={styles.orgcharticon}> 
+            </img  > Org Chart</h4>
+           </a>
           </div>
-        ))}
+        )): <h1>
+          no items found 
+        </h1>
+      
+      }
       </div>
     </div>
   );

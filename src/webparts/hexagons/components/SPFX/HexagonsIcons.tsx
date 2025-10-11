@@ -48,6 +48,7 @@ const HexagonIcons: React.FC<IHexagonIcons> = ({ context }) => {
 
   return (
     <div className={styles.dashboardContainer}>
+      <h1></h1>
       {hexagonItems && hexagonItems.length > 0 ? (
         hexagonItems.map((item: ICircleItem, index) => (
           <div key={index} className={styles.circleCard}>

@@ -30,21 +30,33 @@ const DashboardLinks: React.FC<CMLinks> = ({ context }) => {
   }, []);
  
   const renderLinks = (links: any[]) => (
+   
+
+    links && links.length > 0 ?
+    
+
     <ul className={styles.linkList}>
-      {links.map((link, i) => (
+      { links.map((link, i) => (
         
-        <li key={i} className={styles.assalLinks}>
+        link.IconName &&<li key={i} className={styles.assalLinks}>
          <a href={link.Url} target="_blank"  key={i} className={styles.linkWrapper}>
-          <Icon
+          {
+            
+            <>
+             <Icon
             iconName={link.IconName || "Link"}
-            className={styles.icon}
+            className={ styles.icon}
           />
           <span>{link.Description}</span>
+            </>
+          }
+          
+          
            </a>
         </li>
        
       ))}
-    </ul>
+    </ul>: null
   );
  
   return (
@@ -55,9 +67,9 @@ const DashboardLinks: React.FC<CMLinks> = ({ context }) => {
           cmLinks
             
             .map((link) => ({
-              Description: link.QuickAccess.Description,
-              IconName: link.QuickAccessIcon || link.IconName,
-               Url: link.QuickAccess.Url
+              Description: link?.QuickAccess?.Description,
+              IconName: link?.QuickAccessIcon || link.IconName,
+               Url: link?.QuickAccess?.Url
             }))
         )}
       </div>
@@ -67,9 +79,9 @@ const DashboardLinks: React.FC<CMLinks> = ({ context }) => {
           cmLinks
             
             .map((link) => ({
-              Description: link.OtherLinks.Description,
-              IconName: link.OtherLinksIcon || link.IconName, 
-              Url: link.OtherLinks.Url
+              Description: link?.OtherLinks?.Description,
+              IconName: link?.OtherLinksIcon || link.IconName, 
+              Url: link?.OtherLinks?.Url
             }))
         )}
       </div>
@@ -79,22 +91,24 @@ const DashboardLinks: React.FC<CMLinks> = ({ context }) => {
           cmLinks
             
             .map((link) => ({
-              Description: link.DepartmentLinks.Description,
-              IconName: link.DepartmentLinksIcon || link.IconName, 
-              Url: link.DepartmentLinks.Url
+              Description: link?.DepartmentLinks?.Description,
+              IconName: link?.DepartmentLinksIcon , 
+              Url: link?.DepartmentLinks?.Url
             }))
         )}
       </div>
       <div className={styles.systemSection}>
         <h3>Systems Links</h3>
         <div className={styles.grid}>
-          {cmLinks
-           
-            .map((link, i) => (
-              <div key={i} className={styles.systemCard}>
+          {
+          cmLinks && cmLinks.length > 0 &&
+         
+          cmLinks.map((link, i) => (
+
+             link.SystemLinksIcon && <div key={i} className={styles.systemCard}>
                 <a href={link.SystemLinks?.Url} target="_blank"  key={i} className={styles.linkWrapper}>
                 <Icon
-                  iconName={link.SystemLinks?.IconName || "OpenInNewWindow"}
+                  iconName={link?.SystemLinksIcon || "OpenInNewWindow" }
                   className={styles.sysIcon}
                 />
                 <span>{link.SystemLinks?.Description}</span>

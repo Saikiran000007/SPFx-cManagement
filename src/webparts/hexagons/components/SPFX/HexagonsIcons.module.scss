@@ -1,12 +1,18 @@
 .dashboardContainer {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: center;
   gap: 2rem;
-  flex-wrap: wrap;
-  padding: 0px;
+  padding: 10px;
+  min-height: 50vh;
+  overflow-x: auto; /* Enables horizontal scroll */
+  overflow-y: hidden;
+  flex-wrap: nowrap; /* Prevent wrapping to new rows */
+  scroll-behavior: smooth; /* Optional smooth scroll */
 }
  
 .circleCard {
+  flex: 0 0 auto; /* Prevent shrinking so all items keep their size */
   width: 120px;
   height: 120px;
   border-radius: 50%;
@@ -21,7 +27,8 @@
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   cursor: pointer;
 }
- 
+
+
 .circleCard:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);

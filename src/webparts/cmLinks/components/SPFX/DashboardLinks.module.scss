@@ -4,7 +4,11 @@
   gap: 10px;
   
   font-family: 'Segoe UI', sans-serif;
+  
+  
+  padding-right: 8px;
 }
+
  
 .section, .systemSection {
   background: #f8f9fa;
@@ -12,6 +16,9 @@
   border-radius: 8px;
   padding: 12px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+ overflow-y: auto;
+ max-height: 280px;
+  padding-right: 8px;
 }
  
 h3 {
